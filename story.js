@@ -332,7 +332,7 @@ const battleSceneFunc = () => {
     const $dropdownSkills = $('<div>').addClass('skillsDropdown')
     $(`#battleLayout`).append($dropdownSkills);
 
-    const $dropdownButton = $('<button>').text('Fight').on('click', () => {
+    const $dropdownButton = $('<button>').addClass('skillButton').text('Fight').on('click', () => {
         for (i = 0; i < $myskillsDetails.length; i++) {
             $('.skillsDropdown').append($('<button>').text($myskillsDetails[i]).addClass('skillButtons').on('click', skillAttack));
 
@@ -340,6 +340,8 @@ const battleSceneFunc = () => {
     }
     )
 
+    const $backpackButton = $('<button>').text('Backpack').addClass('backpack');
+    $('.skillsDropdown').append($backpackButton);
 
     console.log($myMonsters);
     console.log(Object.keys($myMonsters[0].skills)[0]);
@@ -366,6 +368,12 @@ const skillAttack = (event) => {
 
     //Remove button after selecting.
     $('.skillsDropdown').hide();
+
+    //Link to backpack for potion
+    const $backpackButton = $('<button>').text('Backpack').addClass('backpack');
+    $('.skillsDropdown').append($backpackButton);
+
+
 
     //Link selected skill to damage 
     console.log(event.currentTarget.textContent);
@@ -405,11 +413,25 @@ const skillAttack = (event) => {
     const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage
     $myMonsters[0].health = $myremaindinghealth
 
+    
     setTimeout(function(){ 
-        $('#myMonsterHp').text(`Enemy ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
+        $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
         alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
         $('.skillsDropdown').show();
         }, 3000)
+
+        if($myMonsters[0].health <= 0) {
+
+            alert(`You Lost!`)
+            $('.skillsDropdown').hide()
+        }
+
+        if ($enemyMonsters[0].health <= 0) {
+            alert(`You Won!`)
+            $('.skillsDropdown').hide();
+        }
+
+
 
 }
 
