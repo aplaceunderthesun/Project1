@@ -2,151 +2,167 @@ console.log('hi 1')
 //myMonsters[i].image
 const allMonsters = [
     {
-        name: 'Charmander',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 309,
+        name: 'Venusaur',
+        image: 'https://i.ibb.co/LJhfvSj/venusaur.jpg',
+        health: 364,
         skills: {
-            scratch: 40, ember: 40, "dragon breath": 60, "fire fang": 65,
+            "petal blizzard": 90, "razor leaf": 55, "seed bomb": 80, "Vine Whip": 45,
         }
-    },
-
-    {
-        name: 'Charmeleon',
-        image: 'https://i.ibb.co/NZZff7L/bulbasaur-1.jpg',
-        health: 100,
-        skills: { tackle: 10, thunder: 60 }
     },
 
     {
         name: 'Charlizard',
-        image: 'https://i.ibb.co/0tCWNjL/wartortle-2.jpg',
-        health: 200,
-        skills: { tackle: 40, thunder: 100 }
-    },
-
-    {
-        name: 'Bulbasaur',
-        image: 'https://i.ibb.co/NZZff7L/bulbasaur-1.jpg',
-        health: 200,
-        skills: { tackle: 100, thunder: 60 }
-    },
-
-    {
-        name: 'Ivysaur',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 300,
-        skills: { tackle: 40, thunder: 100 }
-    },
-
-    {
-        name: 'Venusaur',
-        image: 'https://i.ibb.co/0tCWNjL/wartortle-2.jpg',
-        health: 309,
-        skills: {
-            scratch: 40, ember: 40, "dragon breath": 60, "fire fang": 65,
+        image: 'https://i.ibb.co/VLBMRrD/charizard.jpg',
+        health: 360,
+        skills: { flamethrower: 90, ember: 40, "dragon breath": 60, "fire fang": 65, 
         }
     },
 
     {
-        name: 'Cat2',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 100,
-        skills: { tackle: 10, thunder: 60 }
-    },
-
-    {
-        name: 'Dog3',
-        image: 'https://i.ibb.co/0tCWNjL/wartortle-2.jpg',
-        health: 200,
-        skills: { tackle: 40, thunder: 100 }
-    },
-
-    {
-        name: 'Cat3',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 200,
-        skills: { tackle: 100, thunder: 60 }
-    },
-
-    {
-        name: 'Dog4',
-        image: 'https://i.ibb.co/NZZff7L/bulbasaur-1.jpg',
-        health: 300,
-        skills: { tackle: 40, thunder: 100 }
-    },
-
-    {
-        name: 'Charmander2',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 309,
-        skills: {
-            scratch: 40, ember: 40, "dragon breath": 60, "fire fang": 65,
+        name: 'Blastoise',
+        image: 'https://i.ibb.co/r5pN8xh/blastoise.jpg',
+        health: 362,
+        skills: { "flash cannon": 80, "water gun": 40, "rapid spin": 50, "aqua tail": 90,  
         }
     },
 
     {
-        name: 'Cat3',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 100,
-        skills: { tackle: 10, thunder: 60 }
-    },
-
-    {
-        name: 'Dog4',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 200,
-        skills: { tackle: 40, thunder: 100 }
-    },
-
-    {
-        name: 'Cat4',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 200,
-        skills: { tackle: 100, thunder: 60 }
-    },
-
-    {
-        name: 'Dog5',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 300,
-        skills: { tackle: 40, thunder: 100 }
-    },
-
-    {
-        name: 'Charmander3',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 309,
-        skills: {
-            scratch: 40, ember: 40, "dragon breath": 60, "fire fang": 65,
+        name: 'Butterfree',
+        image: 'https://i.ibb.co/QX5Nhnx/butterfree.jpg',
+        health: 324,
+        skills: { "bug bite": 60, gust: 40, confusion: 50, "air slash": 75,
         }
     },
 
     {
-        name: 'Cat4',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 100,
-        skills: { tackle: 10, thunder: 60 }
+        name: 'Beedrill',
+        image: 'https://i.ibb.co/KKkTNJs/beedrill.jpg',
+        health: 334,
+        skills: { peck: 35, "poison jab": 80, outrage: 120, "pin missle": 25,
+        }
     },
 
     {
-        name: 'Dog5',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 200,
-        skills: { tackle: 40, thunder: 100 }
+        name: 'Pidgeot',
+        image: 'https://i.ibb.co/k5TGv26/pidgeot.jpg',
+        health: 320,
+        skills: {
+            gust: 40, "quick attack": 40, "wing attack": 60, "sky attack": 120,
+        }
     },
 
     {
-        name: 'Cat5',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 200,
-        skills: { tackle: 100, thunder: 60 }
+        name: 'Nidoqueen',
+        image: 'https://i.ibb.co/712LsTF/nidoqueen.jpg',
+        health: 384,
+        skills: { bite: 60, "earth power": 90, "double kick": 30, scratch: 40,
+        }
     },
 
     {
-        name: 'Dog6',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
-        health: 300,
-        skills: { tackle: 40, thunder: 100 }
+        name: 'Gengar',
+        image: 'https://i.ibb.co/DLfWZFN/gengar.jpg',
+        health: 324,
+        skills: { "shadow ball": 80, "dream eater": 100, "shadow punch": 60, lick: 30, 
+        }
+    },
+
+    {
+        name: 'Alakazam',
+        image: 'https://i.ibb.co/ZWj5F7P/alakazam.jpg',
+        health: 314,
+        skills: { confusion: 50, psybeam: 65, psychic: 90, "future signt": 120, 
+        }
+    },
+
+    {
+        name: 'Clefable',
+        image: 'https://i.ibb.co/xjX0G74/clefable.jpg',
+        health: 394,
+        skills: { "meteor mash": 0, "disarming voice": 45, moonblast: 95, pound: 40, 
+        }
+    },
+
+    {
+        name: 'Ninetales',
+        image: 'https://i.ibb.co/vmjkDS4/ninetales.jpg',
+        health: 350,
+        skills: {
+            ember: 40, flamethrower: 40, "fire spin": 60, inferno: 100,
+        }
+    },
+
+    {
+        name: 'Golbat',
+        image: 'https://i.ibb.co/PTvR52B/golbat.jpg',
+        health: 354,
+        skills: { astonish: 30, "poison fang": 50, "leech life": 80, "air slash": 75,
+        }
+    },
+
+    {
+        name: 'Vileplume',
+        image: 'https://i.ibb.co/DG4W7M6/vileplume.jpg',
+        health: 354,
+        skills: { acid: 40, "giga drain": 75, "moon blast": 95, "petal dance": 120,
+        }
+    },
+
+    {
+        name: 'Flareon',
+        image: 'https://i.ibb.co/QrK2GY5/flareon.jpg',
+        health: 334,
+        skills: { ember: 40, "take down": 90, swift: 60, "flare blitz": 120, 
+        }
+    },
+
+    {
+        name: 'Dragonite',
+        image: 'https://i.ibb.co/hLVVFL6/dragonite.jpg',
+        health: 386,
+        skills: { "hyper beam": 150, "dragon tail": 60, "thunder punch": 75, twister: 40,
+        }
+    },
+
+    {
+        name: 'Gyarados',
+        image: 'https://i.ibb.co/S5Dq6V6/gyarados.jpg',
+        health: 394,
+        skills: {
+            "ice fang": 40, whirlpool: 35, "hydro pump": 110, "hyper beam": 150,
+        }
+    },
+
+    {
+        name: 'Magikarp',
+        image: 'https://i.ibb.co/d0JtSbq/magikarp.jpg',
+        health: 244,
+        skills: { tackle: 40, 
+        }
+    },
+
+    {
+        name: 'Kabutops',
+        image: 'https://i.ibb.co/FHhg3J7/kabutops.jpg',
+        health: 324,
+        skills: { "mud shot": 55, "stone edge": 100, "night slash": 70, "aqua jet": 40, 
+        }
+    },
+
+    {
+        name: 'Zapdos',
+        image: 'https://i.ibb.co/6BRz2RX/zapdos.jpg',
+        health: 384,
+        skills: { "thunder shock": 40, "drill peck": 80, thunder: 110, "zap cannon": 120,
+        }
+    },
+
+    {
+        name: 'Mewtwo',
+        image: 'https://i.ibb.co/8gtDNV0/mewtwo.jpg',
+        health: 416,
+        skills: { "ancient power": 60, "aura sphere": 80, psystrike: 100, "future sight": 120,
+        }
     },
 
 ]
@@ -177,7 +193,7 @@ const secondSceneFunc = () => {
 
     //!Title 
     const $secondScene = $('<div>').attr('id', 'secondScene');
-    const $chooseYourPokemon = $('<h1>').attr('id', 'secondScene1').text('CHOOSE YOUR TEAM');
+    const $chooseYourPokemon = $('<img>').attr('src', 'https://fontmeme.com/permalink/210920/e26bd3fcca71ce04ba44949507240f87.png').attr('id','secondSceneTitle');
     const $squareContainer = $('<div>').attr('id', 'squareContainer');
 
 
@@ -190,7 +206,7 @@ const secondSceneFunc = () => {
     //!Create Monster Selection Tiles and Pictures
     for (let i = 0; i < allMonsters.length; i++) {
         const $square1 = $('<input>').attr({ type: 'image', src: allMonsters[i].image }).addClass('square');
-        //! How do I key in myMonster[i].image into attr? I tried `` ${} and it doesnt seem to work.
+        //! can we put in random to allMonsters[random] and limit i<21 to create 20 squares?
 
         const $square = $square1.text(`${allMonsters[i].name}`).on('click', submitMonster);
         //When I want to scale up, I can make it random. myMonster[random].image
@@ -241,10 +257,11 @@ const thirdSceneFunc = () => {
 
 
     //! Creating layout for thirdScene
-    const $myName = $('<h2>').text("Who am I?");
+    const $myName = $('<img>').attr('src', 'https://i.ibb.co/SXGrwbx/What-is-your-name.png').attr('id','pokemontrainer');
     const $nameBox = $('<input>').attr({ type: 'text', id: 'nameBox' });
     const $thirdScene = $('<div>').attr('id', 'thirdScene');
-    const $pokemonMaster = $('<img>').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbUnZa63f1NZ3lSsKzq27a7r3yJH6lSrN7yeKZBCjXkwMAaO7ISQpbsYHW2A5YuJOKFw&usqp=CAU');
+    const $pokemonMaster = $('<img>').attr('src', 'https://i.ibb.co/ZXsFTW6/Ash-2.png');
+    //https://i.ibb.co/SXGrwbx/What-is-your-name.png
     $('body').append($thirdScene);
     $('#thirdScene').append($pokemonMaster);
     ($thirdScene).append($myName);
@@ -317,12 +334,12 @@ const battleSceneFunc = () => {
     //2  IMAGE + TEXT containers --> one enemy pokemon and one my own
     //enemy monster
     const $enemyMonsterImage = $('<img>').attr({ src: $enemyMonsters[0].image });
-    const $enemyMonsterHp = $('<p>').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`).attr('id','enemyMonsterHp');
+    const $enemyMonsterHp = $('<h2>').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`).attr('id','enemyMonsterHp');
     $('#battleLayout').append($enemyMonsterImage);
     $('#battleLayout').append($enemyMonsterHp);
     //my own monster
     const $myMonsterImage = $('<img>').attr({ src: $myMonsters[0].image });
-    const $myMonsterHp = $('<p>').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`).attr('id','myMonsterHp');
+    const $myMonsterHp = $('<h2>').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`).attr('id','myMonsterHp');
     $('#battleLayout').append($myMonsterImage);
     $('#battleLayout').append($myMonsterHp);
 
@@ -369,22 +386,20 @@ const skillAttack = (event) => {
     //Remove button after selecting.
     $('.skillsDropdown').hide();
 
-    //Link to backpack for potion
-    const $backpackButton = $('<button>').text('Backpack').addClass('backpack');
-    $('.skillsDropdown').append($backpackButton);
-
-
 
     //Link selected skill to damage 
     console.log(event.currentTarget.textContent);
     const $myskillsName = (event.currentTarget.textContent);
     const $myskillsDamage = ($myMonsters[0].skills[$myskillsName]);
 
+
     //My Monster attack Enemy Monster
         //Check if HP === 0. If true, win. If false, continue.
+        
 
     const $enemyremaindinghealth = $enemyMonsters[0].health - $myskillsDamage
     $enemyMonsters[0].health = $enemyremaindinghealth
+
 
     console.log('Health Decrease');
     console.log($enemyMonsters);
@@ -418,7 +433,7 @@ const skillAttack = (event) => {
         $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
         alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
         $('.skillsDropdown').show();
-        }, 3000)
+        }, 1500)
 
         if($myMonsters[0].health <= 0) {
 
