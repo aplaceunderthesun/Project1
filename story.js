@@ -317,24 +317,24 @@ const battleSceneFunc = () => {
     //2  IMAGE + TEXT containers --> one enemy pokemon and one my own
     //enemy monster
     const $enemyMonsterImage = $('<img>').attr({ src: $enemyMonsters[0].image });
-    const $enemyMonsterHp = $('<p>').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`);
+    const $enemyMonsterHp = $('<p>').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`).attr('id','enemyMonsterHp');
     $('#battleLayout').append($enemyMonsterImage);
     $('#battleLayout').append($enemyMonsterHp);
     //my own monster
     const $myMonsterImage = $('<img>').attr({ src: $myMonsters[0].image });
-    const $myMonsterHp = $('<p>').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
+    const $myMonsterHp = $('<p>').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`).attr('id','myMonsterHp');
     $('#battleLayout').append($myMonsterImage);
     $('#battleLayout').append($myMonsterHp);
 
     //1 container holding 4 buttons --> Fight, Run 
     //BUTTON for Fight->Skills
-    const $skillsDetails = (Object.keys($myMonsters[0].skills));
+    const $myskillsDetails = (Object.keys($myMonsters[0].skills));
     const $dropdownSkills = $('<div>').addClass('skillsDropdown')
     $(`#battleLayout`).append($dropdownSkills);
 
     const $dropdownButton = $('<button>').text('Fight').on('click', () => {
-        for (i = 0; i < $skillsDetails.length; i++) {
-            $('.skillsDropdown').append($('<button>').text($skillsDetails[i]).addClass('skillButtons').on('click', skillAttack));
+        for (i = 0; i < $myskillsDetails.length; i++) {
+            $('.skillsDropdown').append($('<button>').text($myskillsDetails[i]).addClass('skillButtons').on('click', skillAttack));
 
         }
     }
@@ -364,19 +364,52 @@ const battleSceneFunc = () => {
 
 const skillAttack = (event) => {
 
+    //Remove button after selecting.
+    $('.skillsDropdown').hide();
+
     //Link selected skill to damage 
     console.log(event.currentTarget.textContent);
-    const $skillsName = (event.currentTarget.textContent);
-    const $skillDamage = ($myMonsters[0].skills[$skillsName]);
+    const $myskillsName = (event.currentTarget.textContent);
+    const $myskillsDamage = ($myMonsters[0].skills[$myskillsName]);
 
     //My Monster attack Enemy Monster
         //Check if HP === 0. If true, win. If false, continue.
 
-    const $remaindinghealth = $enemyMonsters[0].health - $skillDamage
-    $enemyMonsters[0].health = $remaindinghealth
+    const $enemyremaindinghealth = $enemyMonsters[0].health - $myskillsDamage
+    $enemyMonsters[0].health = $enemyremaindinghealth
 
     console.log('Health Decrease');
     console.log($enemyMonsters);
+
+    //Updating the HP when myMonster attacks and alerts
+
+    $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`)
+    alert(`${$myMonsters[0].name} used ${$myskillsName}`)
+    //! Can use append instead lor if theres a violation 
+
+    //Delay, plus notification that enemy monster used what an attack
+    console.log('ENEMY MONSTER TIME')
+    console.log($enemyMonsters);
+
+    const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills));
+    console.log($enemyskillsDetails);
+    const $randomNumber = Math.floor(Math.random()*($enemyskillsDetails.length));
+    console.log($randomNumber);
+    const $enemyskillsName = $enemyskillsDetails[$randomNumber];
+    console.log($enemyskillsName);
+    const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName];
+    console.log($enemyskillsDamage);
+
+    //Enemy Attacks 
+
+    const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage
+    $myMonsters[0].health = $myremaindinghealth
+
+    setTimeout(function(){ 
+        $('#myMonsterHp').text(`Enemy ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
+        alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
+        }, 3000)
+
 
 }
 
