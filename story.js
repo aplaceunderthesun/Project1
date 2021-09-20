@@ -12,21 +12,21 @@ const allMonsters = [
 
     {
         name: 'Charmeleon',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
+        image: 'https://i.ibb.co/NZZff7L/bulbasaur-1.jpg',
         health: 100,
         skills: { tackle: 10, thunder: 60 }
     },
 
     {
         name: 'Charlizard',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
+        image: 'https://i.ibb.co/0tCWNjL/wartortle-2.jpg',
         health: 200,
         skills: { tackle: 40, thunder: 100 }
     },
 
     {
         name: 'Bulbasaur',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
+        image: 'https://i.ibb.co/NZZff7L/bulbasaur-1.jpg',
         health: 200,
         skills: { tackle: 100, thunder: 60 }
     },
@@ -40,7 +40,7 @@ const allMonsters = [
 
     {
         name: 'Venusaur',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
+        image: 'https://i.ibb.co/0tCWNjL/wartortle-2.jpg',
         health: 309,
         skills: {
             scratch: 40, ember: 40, "dragon breath": 60, "fire fang": 65, slash: 70, flamethrower: 90
@@ -56,7 +56,7 @@ const allMonsters = [
 
     {
         name: 'Dog3',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
+        image: 'https://i.ibb.co/0tCWNjL/wartortle-2.jpg',
         health: 200,
         skills: { tackle: 40, thunder: 100 }
     },
@@ -70,7 +70,7 @@ const allMonsters = [
 
     {
         name: 'Dog4',
-        image: 'https://i.ibb.co/VWq5ttL/charizard-120x120.jpg',
+        image: 'https://i.ibb.co/NZZff7L/bulbasaur-1.jpg',
         health: 300,
         skills: { tackle: 40, thunder: 100 }
     },
@@ -189,7 +189,7 @@ const secondSceneFunc = () => {
 
     //!Create Monster Selection Tiles and Pictures
     for (let i = 0; i < allMonsters.length; i++) {
-        const $square1 = $('<input>').attr({ type: 'image', src: "https://i.ibb.co/VWq5ttL/charizard-120x120.jpg" }).addClass('square');
+        const $square1 = $('<input>').attr({ type: 'image', src: allMonsters[i].image}).addClass('square');
         //! How do I key in myMonster[i].image into attr? I tried `` ${} and it doesnt seem to work.
 
         const $square = $square1.text(`${allMonsters[i].name}`).on('click', submitMonster);
@@ -213,7 +213,8 @@ const submitMonster = (event) => {
     console.log($currentMonster);
 
     //Gets the monster from the array and push it into the container
-    if ($myMonsters.length < 2) {
+    //And maximum 1 monster. 
+    if ($myMonsters.length < 1 ) {
         for (let i = 0; i < allMonsters.length; i++) {
             if ($currentMonster === allMonsters[i].name) {
                 $myMonsters.push(allMonsters[i]);
@@ -223,12 +224,9 @@ const submitMonster = (event) => {
     }
 
 
-    //How do I limit the number of monster? Arr.length?
-
     console.log('My Monsters', $myMonsters);
 }
 
-//!How to click and select monsters so that I can push into the container? 
 
 ///////////////////////////////////////////////////
 // Function to Third Scene 
@@ -277,8 +275,10 @@ const forthSceneFunc = () => {
     $('body').css('background-color', 'pink');
     // $('body').css('background-image','url(https://xxx.png)');
 
+
     const $forthScene = $('<div>').attr('id', 'forthScene');
     $('body').append($forthScene);
+
 
     const $forthButton = $('<button>').addClass('forthSceneButton').text('TO BATTLE');
     $('#forthScene').append($forthButton);
@@ -298,26 +298,25 @@ const battleSceneFunc = () => {
     $('body').css('background-color', 'grey');
     // $('body').css('background-image','url(https://xxx.png)');
 
+
     const $battleLayout = $('<div>').attr('id', 'battleLayout');
     $('body').append($battleLayout);
 
+
     //Random choosing of enemy monsters
     const enemyRandom = Math.floor(Math.random() * (allMonsters.length));
-    //If random Choosing for enemy trainer, i<5. 
-    console.log('Random Number', enemyRandom);
 
 
-    //!How do I copy an object from my array into another emtpy
+    //EnemyRandom Monsters into container 
     const $enemycurrentMonster = allMonsters.splice(enemyRandom, 1)
     $enemyMonsters = $enemycurrentMonster;
 
-    console.log('darren', $myMonsters);
+    console.log($myMonsters);
     console.log($enemyMonsters);
-    console.log($enemyMonsters[0].name)
-    console.log($enemyMonsters[0].health)
 
-    // const $enemycurrentMonster = $('<img>').attr('id','enemycurrentMonster').attr('src', )
-    // const $mycurrentMonster = $('<img>').attr('id','mycurrentMonster');
+    //2 image containers --> one enemy pokemon and one my own
+    //2 text containers --> one enemy pokemon and one my own
+    //1 container holding 4 buttons --> Fight, Run 
 
 }
 
