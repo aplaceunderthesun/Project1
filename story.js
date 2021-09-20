@@ -155,9 +155,9 @@ const allMonsters = [
 // ! Global Containers
 // /////////////////////////////////////////////////
 
-const $myMonsters = []
-const $enemyMonsters = []
-
+//Put a temporary Monster
+let $myMonsters = [];
+let $enemyMonsters = []
 //When I select my Pokemon, I will push them into this container. 
 //If I scale up to be able to fight Trainers, this will serve as the container too. 
 
@@ -191,9 +191,11 @@ const secondSceneFunc = () => {
     for (let i = 0; i < allMonsters.length; i++) {
         const $square1 = $('<input>').attr({ type: 'image', src: "https://i.ibb.co/VWq5ttL/charizard-120x120.jpg" }).addClass('square');
         //! How do I key in myMonster[i].image into attr? I tried `` ${} and it doesnt seem to work.
-        const $square = $square1.append(`<p>${allMonsters[i].name}</p>`).append($('<button>')).on('click', submitMonster);
+
+        const $square = $square1.text(`${allMonsters[i].name}`).on('click', submitMonster);
         //When I want to scale up, I can make it random. myMonster[random].image
         //.append(`<p>${myMonsters[i].name}</p>`).append($('<button>')).on('click',submitMonster); Used to work but now cant.
+
         ($('#squareContainer')).append($square);
 
     }
@@ -205,7 +207,25 @@ const secondSceneFunc = () => {
 }
 
 const submitMonster = (event) => {
-    console.log("This");
+
+    //Gets the name of the monster selected
+    const $currentMonster = event.currentTarget.textContent;
+    console.log($currentMonster);
+
+    //Gets the monster from the array and push it into the container
+    if ($myMonsters.length < 2) {
+        for (let i = 0; i < allMonsters.length; i++) {
+            if ($currentMonster === allMonsters[i].name) {
+                $myMonsters.push(allMonsters[i]);
+            }
+        }
+
+    }
+
+
+    //How do I limit the number of monster? Arr.length?
+
+    console.log('My Monsters', $myMonsters);
 }
 
 //!How to click and select monsters so that I can push into the container? 
@@ -237,7 +257,7 @@ const thirdSceneFunc = () => {
     // $('.secondSceneButton').on('click', thirdSceneFunc)
 
     //Adding Profile Picture
-    
+
 
     const $thirdButton = $('<button>').addClass('thirdSceneButton').text('Storytime');
     $('#thirdScene').append($thirdButton);
@@ -278,20 +298,24 @@ const battleSceneFunc = () => {
     $('body').css('background-color', 'grey');
     // $('body').css('background-image','url(https://xxx.png)');
 
-    const $battleLayout = $('<div>').attr('id','battleLayout');
+    const $battleLayout = $('<div>').attr('id', 'battleLayout');
     $('body').append($battleLayout);
 
     //Random choosing of enemy monsters
-    const enemyRandom = Math.floor(Math.random()*(allMonsters.length));
-        //If random Choosing for enemy trainer, i<5. 
+    const enemyRandom = Math.floor(Math.random() * (allMonsters.length));
+    //If random Choosing for enemy trainer, i<5. 
     console.log('Random Number', enemyRandom);
-    
+
 
     //!How do I copy an object from my array into another emtpy
-    const $enemycurrentMonster = $(allMonsters[enemyRandom])
-    console.log($enemycurrentMonster);
-    Object.assign($enemycurrentMonster,$enemyMonsters);
+    const $enemycurrentMonster = allMonsters.splice(enemyRandom, 1)
+    $enemyMonsters = $enemycurrentMonster;
+
+    console.log('darren', $myMonsters);
     console.log($enemyMonsters);
+    console.log($enemyMonsters[0].name)
+    console.log($enemyMonsters[0].health)
+
     // const $enemycurrentMonster = $('<img>').attr('id','enemycurrentMonster').attr('src', )
     // const $mycurrentMonster = $('<img>').attr('id','mycurrentMonster');
 
