@@ -408,8 +408,8 @@ const skillAttack = (event) => {
     setTimeout(function(){ 
         $('#myMonsterHp').text(`Enemy ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
         alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
+        $('.skillsDropdown').show();
         }, 3000)
-
 
 }
 
