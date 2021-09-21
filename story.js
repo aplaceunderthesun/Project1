@@ -129,7 +129,7 @@ const allMonsters = [
         image: 'https://i.ibb.co/S5Dq6V6/gyarados.jpg',
         health: 394,
         skills: {
-            "Ice Fang": 40, Whirlpool: 35, "Hydro Pump": 110, "Hyper Beam": 150,
+            "Ice Fang": 40, Whirlpool: 35, "Hydro Pump": 110, "Hyper Beam": 300,
         }
     },
 
@@ -413,7 +413,17 @@ const skillAttack = (event) => {
         $('.skillButtons').hide()
         //Link to next function -> slide in popup 
 
-        const $winPopup = $('<div>').attr('type','submit').text('You Won!').addClass('winPop')
+        //!HOW TO RESET ARRAY
+        const $winPopup = $('<div>').attr('type','submit').text('You Won!').addClass('winPop').one('click',()=> {
+            $('body').css('background-color','transparent');
+            $myMonsters = [];
+            $enemyMonsters = [];
+            $('#battleLayout').remove();
+            secondSceneFunc();
+            console.log($myMonsters)
+            console.log($enemyMonsters);
+            console.log(allMonsters)
+        })
         $('#battleLayout').append($winPopup);
     }
     else {
