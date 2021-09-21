@@ -6,7 +6,7 @@ const allMonsters = [
         image: 'https://i.ibb.co/LJhfvSj/venusaur.jpg',
         health: 364,
         skills: {
-            "petal blizzard": 90, "razor leaf": 55, "seed bomb": 80, "Vine Whip": 45,
+            "Petal blizzard": 90, "Razor Leaf": 55, "Seed Bomb": 80, "Vine Whip": 45,
         }
     },
 
@@ -14,7 +14,7 @@ const allMonsters = [
         name: 'Charlizard',
         image: 'https://i.ibb.co/VLBMRrD/charizard.jpg',
         health: 360,
-        skills: { flamethrower: 90, ember: 40, "dragon breath": 60, "fire fang": 65, 
+        skills: { Flamethrower: 90, Ember: 40, "Dragon Breath": 60, "Fire Fang": 65, 
         }
     },
 
@@ -22,7 +22,7 @@ const allMonsters = [
         name: 'Blastoise',
         image: 'https://i.ibb.co/r5pN8xh/blastoise.jpg',
         health: 362,
-        skills: { "flash cannon": 80, "water gun": 40, "rapid spin": 50, "aqua tail": 90,  
+        skills: { "Flash Cannon": 80, "Water Gun": 40, "Rapid Spin": 50, "Aqua Tail": 90,  
         }
     },
 
@@ -30,7 +30,7 @@ const allMonsters = [
         name: 'Butterfree',
         image: 'https://i.ibb.co/QX5Nhnx/butterfree.jpg',
         health: 324,
-        skills: { "bug bite": 60, gust: 40, confusion: 50, "air slash": 75,
+        skills: { "Bug Bite": 60, Gust: 40, Confusion: 50, "Air Slash": 75,
         }
     },
 
@@ -38,7 +38,7 @@ const allMonsters = [
         name: 'Beedrill',
         image: 'https://i.ibb.co/KKkTNJs/beedrill.jpg',
         health: 334,
-        skills: { peck: 35, "poison jab": 80, outrage: 120, "pin missle": 25,
+        skills: { Peck: 35, "Poison Jab": 80, Outrage: 120, "Pin Missle": 25,
         }
     },
 
@@ -47,7 +47,7 @@ const allMonsters = [
         image: 'https://i.ibb.co/k5TGv26/pidgeot.jpg',
         health: 320,
         skills: {
-            gust: 40, "quick attack": 40, "wing attack": 60, "sky attack": 120,
+            Gust: 40, "Quick Attack": 40, "Wing Attack": 60, "Sky Attack": 120,
         }
     },
 
@@ -55,7 +55,7 @@ const allMonsters = [
         name: 'Nidoqueen',
         image: 'https://i.ibb.co/712LsTF/nidoqueen.jpg',
         health: 384,
-        skills: { bite: 60, "earth power": 90, "double kick": 30, scratch: 40,
+        skills: { Bite: 60, "Earth Power": 90, "Double Kick": 30, Scratch: 40,
         }
     },
 
@@ -63,7 +63,7 @@ const allMonsters = [
         name: 'Gengar',
         image: 'https://i.ibb.co/DLfWZFN/gengar.jpg',
         health: 324,
-        skills: { "shadow ball": 80, "dream eater": 100, "shadow punch": 60, lick: 30, 
+        skills: { "Shadow Ball": 80, "Dream Eater": 100, "Shadow Punch": 60, Lick: 30, 
         }
     },
 
@@ -71,7 +71,7 @@ const allMonsters = [
         name: 'Alakazam',
         image: 'https://i.ibb.co/ZWj5F7P/alakazam.jpg',
         health: 314,
-        skills: { confusion: 50, psybeam: 65, psychic: 90, "future signt": 120, 
+        skills: { Confusion: 50, Psybeam: 65, Psychic: 90, "Future Signt": 120, 
         }
     },
 
@@ -79,7 +79,7 @@ const allMonsters = [
         name: 'Clefable',
         image: 'https://i.ibb.co/xjX0G74/clefable.jpg',
         health: 394,
-        skills: { "meteor mash": 0, "disarming voice": 45, moonblast: 95, pound: 40, 
+        skills: { "Meteor Mash": 0, "Disarming Voice": 45, Moonblast: 95, Pound: 40, 
         }
     },
 
@@ -88,7 +88,7 @@ const allMonsters = [
         image: 'https://i.ibb.co/vmjkDS4/ninetales.jpg',
         health: 350,
         skills: {
-            ember: 40, flamethrower: 40, "fire spin": 60, inferno: 100,
+            Ember: 40, Flamethrower: 40, "Fire Spin": 60, Inferno: 100,
         }
     },
 
@@ -96,7 +96,7 @@ const allMonsters = [
         name: 'Golbat',
         image: 'https://i.ibb.co/PTvR52B/golbat.jpg',
         health: 354,
-        skills: { astonish: 30, "poison fang": 50, "leech life": 80, "air slash": 75,
+        skills: { Astonish: 30, "Poison Fang": 50, "Leech Life": 80, "Air Slash": 75,
         }
     },
 
@@ -104,7 +104,7 @@ const allMonsters = [
         name: 'Vileplume',
         image: 'https://i.ibb.co/DG4W7M6/vileplume.jpg',
         health: 354,
-        skills: { acid: 40, "giga drain": 75, "moon blast": 95, "petal dance": 120,
+        skills: { Acid: 40, "Giga Drain": 75, "Moon Blast": 95, "Petal Dance": 120,
         }
     },
 
@@ -112,7 +112,7 @@ const allMonsters = [
         name: 'Flareon',
         image: 'https://i.ibb.co/QrK2GY5/flareon.jpg',
         health: 334,
-        skills: { ember: 40, "take down": 90, swift: 60, "flare blitz": 120, 
+        skills: { Ember: 40, "Take Down": 90, Swift: 60, "Flare Blitz": 120, 
         }
     },
 
@@ -120,7 +120,7 @@ const allMonsters = [
         name: 'Dragonite',
         image: 'https://i.ibb.co/hLVVFL6/dragonite.jpg',
         health: 386,
-        skills: { "hyper beam": 150, "dragon tail": 60, "thunder punch": 75, twister: 40,
+        skills: { "Hyper Beam": 150, "Dragon Tail": 60, "Thunder Punch": 75, Twister: 40,
         }
     },
 
@@ -129,7 +129,7 @@ const allMonsters = [
         image: 'https://i.ibb.co/S5Dq6V6/gyarados.jpg',
         health: 394,
         skills: {
-            "ice fang": 40, whirlpool: 35, "hydro pump": 110, "hyper beam": 150,
+            "Ice Fang": 40, Whirlpool: 35, "Hydro Pump": 110, "Hyper Beam": 150,
         }
     },
 
@@ -137,7 +137,7 @@ const allMonsters = [
         name: 'Magikarp',
         image: 'https://i.ibb.co/d0JtSbq/magikarp.jpg',
         health: 244,
-        skills: { tackle: 40, 
+        skills: { Tackle: 40, 
         }
     },
 
@@ -145,7 +145,7 @@ const allMonsters = [
         name: 'Kabutops',
         image: 'https://i.ibb.co/FHhg3J7/kabutops.jpg',
         health: 324,
-        skills: { "mud shot": 55, "stone edge": 100, "night slash": 70, "aqua jet": 40, 
+        skills: { "Mud Shot": 55, "Stone Edge": 100, "Night Slash": 70, "Aqua Jet": 40, 
         }
     },
 
@@ -153,7 +153,7 @@ const allMonsters = [
         name: 'Zapdos',
         image: 'https://i.ibb.co/6BRz2RX/zapdos.jpg',
         health: 384,
-        skills: { "thunder shock": 40, "drill peck": 80, thunder: 110, "zap cannon": 120,
+        skills: { "Thunder Shock": 40, "Drill Peck": 80, thunder: 110, "Zap Cannon": 120,
         }
     },
 
@@ -161,7 +161,7 @@ const allMonsters = [
         name: 'Mewtwo',
         image: 'https://i.ibb.co/8gtDNV0/mewtwo.jpg',
         health: 416,
-        skills: { "ancient power": 60, "aura sphere": 80, psystrike: 100, "future sight": 120,
+        skills: { "Ancient Power": 60, "Aura Sphere": 80, Psystrike: 100, "Future Sight": 120,
         }
     },
 
@@ -307,6 +307,7 @@ const forthSceneFunc = () => {
 ///////////////////////////////////////////////////
 // Function to Battle Scene 
 ///////////////////////////////////////////////////
+//!CAN WE ADD BATTLE MUSIC?
 
 const battleSceneFunc = () => {
     console.log('TO BATTLE POKEMON')
@@ -315,10 +316,13 @@ const battleSceneFunc = () => {
     $('body').css('background-color', 'grey');
     // $('body').css('background-image','url(https://xxx.png)');
 
-
+    //Created individual containers for each section
     const $battleLayout = $('<div>').attr('id', 'battleLayout');
+    const $myBattleLayout = $('<div>').attr('id', 'myBattleLayout');
+    const $enemyBattleLayout = $('<div>').attr('id', 'enemyBattleLayout');
     $('body').append($battleLayout);
-
+    $('#battleLayout').append($enemyBattleLayout);
+    $('#battleLayout').append($myBattleLayout);
 
     //Random choosing of enemy monsters
     const enemyRandom = Math.floor(Math.random() * (allMonsters.length));
@@ -335,43 +339,48 @@ const battleSceneFunc = () => {
     //enemy monster
     const $enemyMonsterImage = $('<img>').attr({ src: $enemyMonsters[0].image });
     const $enemyMonsterHp = $('<h2>').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`).attr('id','enemyMonsterHp');
-    $('#battleLayout').append($enemyMonsterImage);
-    $('#battleLayout').append($enemyMonsterHp);
+    $('#enemyBattleLayout').append($enemyMonsterHp);
+    $('#enemyBattleLayout').append($enemyMonsterImage);
+ 
     //my own monster
     const $myMonsterImage = $('<img>').attr({ src: $myMonsters[0].image });
     const $myMonsterHp = $('<h2>').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`).attr('id','myMonsterHp');
-    $('#battleLayout').append($myMonsterImage);
-    $('#battleLayout').append($myMonsterHp);
+    $('#myBattleLayout').append($myMonsterImage);
+    $('#myBattleLayout').append($myMonsterHp);
 
-    //1 container holding 4 buttons --> Fight, Run 
+    
     //BUTTON for Fight->Skills
     const $myskillsDetails = (Object.keys($myMonsters[0].skills));
     const $dropdownSkills = $('<div>').addClass('skillsDropdown')
     $(`#battleLayout`).append($dropdownSkills);
 
-    const $dropdownButton = $('<button>').addClass('skillButton').text('Fight').on('click', () => {
+    const $dropdownButton = $('<div>').attr('type','submit').addClass('skillButton').text('Fight').one('click', () => {
         for (i = 0; i < $myskillsDetails.length; i++) {
-            $('.skillsDropdown').append($('<button>').text($myskillsDetails[i]).addClass('skillButtons').on('click', skillAttack));
-
+            $('.skillButton').append($('<button>').text($myskillsDetails[i]).addClass('skillButtons').on('click', skillAttack));
+             //! HungryForMore: Toggling Class    
         }
     }
     )
 
-    const $backpackButton = $('<button>').text('Backpack').addClass('backpack');
-    $('.skillsDropdown').append($backpackButton);
-
-    console.log($myMonsters);
-    console.log(Object.keys($myMonsters[0].skills)[0]);
-    console.log((Object.keys($myMonsters[0].skills)).length);
-
-
-
     $('.skillsDropdown').append($dropdownButton);
+
+    //BUTTON for Backpack -> Potions 
+    const $backpackButton = $('<div>').attr('type','submit').text('Backpack').addClass('backpack').one('click', ()=> {
+        const $potionButton = $('<button>').addClass('potion').text('Potion +50HP')
+        $('.backpack').append($potionButton);
+        
+    });
+    $('.skillsDropdown').append($backpackButton);
 
 
     //BUTTON for Pokemon (TBC)
-    //BUTTON for Backpack
+    const $pokemonButton = $('<div>').attr('type','submit').text('Pokemon').addClass('pokemon');
+    $('.skillsDropdown').append($pokemonButton);
+
+    //BUTTON for Backpac
     //BUTTON for Running
+    const $runButton = $('<div>').attr('type','submit').text('Run').addClass('run');
+    $('.skillsDropdown').append($runButton);
 
 }
 
@@ -384,7 +393,7 @@ const battleSceneFunc = () => {
 const skillAttack = (event) => {
 
     //Remove button after selecting.
-    $('.skillsDropdown').hide();
+    $('.skillButtons').hide();
 
 
     //Link selected skill to damage 
@@ -395,56 +404,104 @@ const skillAttack = (event) => {
 
     //My Monster attack Enemy Monster
         //Check if HP === 0. If true, win. If false, continue.
-        
-
     const $enemyremaindinghealth = $enemyMonsters[0].health - $myskillsDamage
     $enemyMonsters[0].health = $enemyremaindinghealth
 
+    if ($enemyMonsters[0].health < 1) {
+        $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has fainted!`)
+        alert('You Won!')
+        $('.skillButtons').hide()
+        //Link to next function -> slide in popup 
 
-    console.log('Health Decrease');
-    console.log($enemyMonsters);
+        const $winPopup = $('<div>').attr('type','submit').text('You Won!').addClass('winPop')
+        $('#battleLayout').append($winPopup);
+    }
+    else {
 
-    //Updating the HP when myMonster attacks and alerts
+        //Updating the HP when myMonster attacks and alerts
+        $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`)
+        alert(`${$myMonsters[0].name} used ${$myskillsName}`)
 
-    $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`)
-    alert(`${$myMonsters[0].name} used ${$myskillsName}`)
-    //! Can use append instead lor if theres a violation 
+            //Getting enemy's skill and damage
+        const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills));
+        console.log($enemyskillsDetails);
+        const $randomNumber = Math.floor(Math.random()*($enemyskillsDetails.length));
+        console.log($randomNumber);
+        const $enemyskillsName = $enemyskillsDetails[$randomNumber];
+        console.log($enemyskillsName);
+        const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName];
+        console.log($enemyskillsDamage);   
+        const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage
+        $myMonsters[0].health = $myremaindinghealth
 
-    //Delay, plus notification that enemy monster used what an attack
-    console.log('ENEMY MONSTER TIME')
-    console.log($enemyMonsters);
+    if ($myMonsters[0].health < 1) {
+        alert(`You Lost!`)
+        $('#myMonsterHp').text(`My ${$myMonsters[0].name} has fainted!`)
+        $('.skillButtons').hide()
 
-    const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills));
-    console.log($enemyskillsDetails);
-    const $randomNumber = Math.floor(Math.random()*($enemyskillsDetails.length));
-    console.log($randomNumber);
-    const $enemyskillsName = $enemyskillsDetails[$randomNumber];
-    console.log($enemyskillsName);
-    const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName];
-    console.log($enemyskillsDamage);
+
+        //Link to next function-> Slide in pop up 
+
+    }
+    else {
+
+        setTimeout(function(){ 
+            $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
+            alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
+            $('.skillButtons').show();
+            }, 1500)
+
+
+    }
+
+    }
+
+
+
+    // console.log('Health Decrease');
+    // console.log($enemyMonsters);
+
+    // //Updating the HP when myMonster attacks and alerts
+
+    // $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`)
+    // alert(`${$myMonsters[0].name} used ${$myskillsName}`)
+    // //! Can use append instead lor if theres a violation 
+
+    // //Delay, plus notification that enemy monster used what an attack
+    // console.log('ENEMY MONSTER TIME')
+    // console.log($enemyMonsters);
+
+    // const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills));
+    // console.log($enemyskillsDetails);
+    // const $randomNumber = Math.floor(Math.random()*($enemyskillsDetails.length));
+    // console.log($randomNumber);
+    // const $enemyskillsName = $enemyskillsDetails[$randomNumber];
+    // console.log($enemyskillsName);
+    // const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName];
+    // console.log($enemyskillsDamage);
 
     //Enemy Attacks 
 
-    const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage
-    $myMonsters[0].health = $myremaindinghealth
+//     const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage
+//     $myMonsters[0].health = $myremaindinghealth
 
     
-    setTimeout(function(){ 
-        $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
-        alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
-        $('.skillsDropdown').show();
-        }, 1500)
+//     setTimeout(function(){ 
+//         $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
+//         alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
+//         $('.skillsDropdown').show();
+//         }, 1500)
 
-        if($myMonsters[0].health <= 0) {
+//         if($myMonsters[0].health <= 0) {
 
-            alert(`You Lost!`)
-            $('.skillsDropdown').hide()
-        }
+//             alert(`You Lost!`)
+//             $('.skillsDropdown').hide()
+//         }
 
-        if ($enemyMonsters[0].health <= 0) {
-            alert(`You Won!`)
-            $('.skillsDropdown').hide();
-        }
+//         if ($enemyMonsters[0].health <= 0) {
+//             alert(`You Won!`)
+//             $('.skillsDropdown').hide();
+//         }
 
 
 
