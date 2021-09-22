@@ -31,6 +31,7 @@
 
   body {
       font-family: 'Pokemon';
+      color: #0F5685;
       background-image: url('https://wallpaperaccess.com/full/8614.jpg');
       margin: 0 auto;
       width: 850px;
@@ -288,7 +289,7 @@
     }
 
     #battleLayout {
-      background-color: grey;
+      background-color: #CCD0D5;
       height: 700px;
       border-radius: 10%;
     }
@@ -371,24 +372,19 @@
   
     }
 
-    .winPop {
+   .winPop {
       border: 1px solid black;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
-
-    }
-
-    .winPop {
-      text-align: center;
-      vertical-align: center;
       margin: 24px;
       width: 100px;
       height: 30px;
       background: lightgrey;
       animation: winPop 2s ease-out infinite;
-    }
+    } 
+
     
     @keyframes winPop {
       0% {
@@ -401,3 +397,57 @@
         transform: scale(1, 1);
       }
     }
+/* 
+    .backgroundMusic {
+      width: 85px;
+      height: 80px;
+    } */
+
+    #myMonsterImage {
+      transform: scaleX(-1);
+      border-radius: 10%;
+    }
+
+    #enemyMonsterImage {
+      border-radius: 10%;
+    }
+
+    #popupBox {
+    position: absolute;
+    z-index: 1; /* Sit on top */
+    left: 2000px;
+    top: 360px;
+    width: 310px;
+    height: 100px; 
+    border-radius: 5%;
+    animation-name: test;
+    animation-duration: 2s;
+    }
+
+
+    @keyframes test {
+      0%   {background-color:lightpink; left:hidden; top:360px;}
+      50%  {background-color:lightpink; left:690px; top:360px;}
+      100%  {background-color:lightpink; left:690px; top:360px;}
+    }
+
+    #popupBoxContent {
+
+  
+
+    }
+
+    #enemyHealthContainer {
+      background-color: red;
+      width: 100px;
+      height: 20px;
+      z-index: 1;
+      left: 200px;
+    }
+
+
+
+
+
+      
+    

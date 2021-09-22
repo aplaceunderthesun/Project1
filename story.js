@@ -139,7 +139,7 @@ const allMonsters = [
     {
         name: 'Gyarados',
         image: 'https://i.ibb.co/S5Dq6V6/gyarados.jpg',
-        health: 394,
+        health: 10, //394
         skills: {
             "Ice Fang": 40, Whirlpool: 35, "Hydro Pump": 110, "Hyper Beam": 300,
         }
@@ -183,25 +183,9 @@ const allMonsters = [
 
 ]
 
+
 const myPotions = [
-    {
-        name: 'Potion 1',
-        heal: 10,
-    },
-
-    {
-        name: 'Potion 2',
-        heal: 384,
-    },
-            {
-        name: 'Potion 1',
-        heal: 10,
-    },
-
-    {
-        name: 'Potion 2',
-        heal: 384,
-    }
+    { type: { "Potion 1": 10, "Potion 2": 15, "Potion 3": 20, "Potion 4": 25, } }
 ]
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -248,10 +232,10 @@ const secondSceneFunc = () => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const submitMonster = (event) => {
-
+    //! DO I even need to run a loop? 
     //Gets the name of the monster selected in 
     const $currentMonster = event.currentTarget.textContent;
-
+    console.log($currentMonster)
 
     //Gets the monster from the array and push it into the container
     //And maximum 1 monster. 
@@ -261,11 +245,10 @@ const submitMonster = (event) => {
                 $myMonsters.push(allMonsters[i]);
             }
         }
-
     }
+
     //Making sure that I can unclick and click and it will select the right monster 
-    //! Could I use else if here instead? Probably use | | on line 232 since it repeats below.
-    if (($myMonsters[0].name) !== ($currentMonster)) {
+    else if (($myMonsters[0].name) !== ($currentMonster)) {
         $myMonsters = []
         for (let i = 0; i < allMonsters.length; i++) {
             if ($currentMonster === allMonsters[i].name) {
@@ -307,14 +290,13 @@ const thirdSceneFunc = () => {
     }
 
     //Creating the submit button (Cannot submit when no monster is selected)
-    const $thirdButton = $('<button>').addClass('thirdSceneButton').text('CONFIRM?')
+    const $thirdButton = $('<button>').addClass('thirdSceneButton').text('TO BATTLE!')
     $('#thirdScene').append($thirdButton);
     $('.thirdSceneButton').on('click', () => {
         if ($myMonsters.length === 0) {
-            return
         }
         else {
-            forthSceneFunc();
+            battleSceneFunc();
         }
 
     })
@@ -327,23 +309,23 @@ const thirdSceneFunc = () => {
 //! Function to 4TH Scene 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const forthSceneFunc = () => {
-    console.log('4th Page')
+// const forthSceneFunc = () => {
+//     console.log('4th Page')
 
-    // Removing thirdScene and uploading new background
-    $('#thirdScene').remove();
-    // $('body').css('background-image','url(https://xxx.png)');
-
-
-    const $forthScene = $('<div>').attr('id', 'forthScene');
-    $('body').append($forthScene);
+//     // Removing thirdScene and uploading new background
+//     $('#thirdScene').remove();
+//     // $('body').css('background-image','url(https://xxx.png)');
 
 
-    const $forthButton = $('<button>').addClass('forthSceneButton').text('TO BATTLE');
-    $('#forthScene').append($forthButton);
-    $('.forthSceneButton').on('click', battleSceneFunc)
+//     const $forthScene = $('<div>').attr('id', 'forthScene');
+//     $('body').append($forthScene);
 
-}
+
+//     const $forthButton = $('<button>').addClass('forthSceneButton').text('TO BATTLE');
+//     $('#forthScene').append($forthButton);
+//     $('.forthSceneButton').on('click', battleSceneFunc)
+
+// }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -354,9 +336,13 @@ const forthSceneFunc = () => {
 const battleSceneFunc = () => {
     console.log('TO BATTLE POKEMON')
 
-    $('#forthScene').remove();
+    $('#thirdScene').remove();
     $('body').css('background-color', 'grey');
-    // $('body').css('background-image','url(https://xxx.png)');
+
+
+    // const $battleMusic = $('<iframe>').attr('src', 'https://www.mboxdrive.com/pokemon-battle.mp3').attr('allow', 'autoplay').addClass('backgroundMusic');
+
+
 
     //Created individual containers for each section
     const $battleLayout = $('<div>').attr('id', 'battleLayout');
@@ -365,6 +351,7 @@ const battleSceneFunc = () => {
     $('body').append($battleLayout);
     $('#battleLayout').append($enemyBattleLayout);
     $('#battleLayout').append($myBattleLayout);
+    // $('#battleLayout').append($battleMusic);
 
     //Random choosing of enemy monsters
     const enemyRandom = Math.floor(Math.random() * (allMonsters.length));
@@ -374,18 +361,23 @@ const battleSceneFunc = () => {
     const $enemycurrentMonster = allMonsters.splice(enemyRandom, 1)
     $enemyMonsters = $enemycurrentMonster;
 
-    console.log($myMonsters);
-    console.log($enemyMonsters);
 
     //2  IMAGE + TEXT containers --> one enemy pokemon and one my own
     //enemy monster
-    const $enemyMonsterImage = $('<img>').attr({ src: $enemyMonsters[0].image });
+    const $enemyMonsterImage = $('<img>').attr({ src: $enemyMonsters[0].image }).attr('id', 'enemyMonsterImage');;
     const $enemyMonsterHp = $('<h2>').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`).attr('id', 'enemyMonsterHp');
     $('#enemyBattleLayout').append($enemyMonsterHp);
     $('#enemyBattleLayout').append($enemyMonsterImage);
 
+    //!Try Making enemyHP Bars 
+    const $enemyHealthContainer = $('<div>').attr('id','enemyHealthContainer'); 
+    const $enemyHealthBar = $('<div>').attr('id','enemyHealthBar');
+    $('#enemyBattleLayout').append($enemyHealthContainer);
+    $('#enemyBattleLayout').append($enemyHealthBar);
+
+
     //my own monster
-    const $myMonsterImage = $('<img>').attr({ src: $myMonsters[0].image });
+    const $myMonsterImage = $('<img>').attr({ src: $myMonsters[0].image }).attr('id', 'myMonsterImage');
     const $myMonsterHp = $('<h2>').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`).attr('id', 'myMonsterHp');
     $('#myBattleLayout').append($myMonsterImage);
     $('#myBattleLayout').append($myMonsterHp);
@@ -393,8 +385,10 @@ const battleSceneFunc = () => {
 
     //BUTTON for Fight->Skills
     const $myskillsDetails = (Object.keys($myMonsters[0].skills));
+    console.log("mySkillsDetails", $myskillsDetails)
     const $dropdownSkills = $('<div>').addClass('skillsDropdown')
     $(`#battleLayout`).append($dropdownSkills);
+
 
     const $dropdownButton = $('<div>').attr('type', 'submit').addClass('skillButton').text('Fight').one('click', () => {
         for (i = 0; i < $myskillsDetails.length; i++) {
@@ -406,23 +400,27 @@ const battleSceneFunc = () => {
     $('.skillsDropdown').append($dropdownButton);
 
     //BUTTON for Backpack -> Potions 
-    const $backpackButton = $('<div>').attr('type', 'submit').text('Backpack').addClass('backpack').one('click', () => {
-        const $potionButton = $('<button>').addClass('potion').text('Potion +50HP')
-        $('.backpack').append($potionButton);
+    const $myPotionDetails = (Object.keys(myPotions[0].type));
+    console.log("myPotionDetails", $myPotionDetails);
+    const $dropDownPotion = $('<div>').addClass('potionDropdown')
+    $(`#battleLayout`).append($dropDownPotion);
 
+    const $backpackButton = $('<div>').attr('type', 'submit').text('Backpack').addClass('backpack').one('click', () => {
+        for (i = 0; i < $myPotionDetails.length; i++) {
+            $('.backpack').append($('<button>').text($myPotionDetails[i]).addClass('potionButtons').on('click', takingPotion));
+        }
     });
+
     $('.skillsDropdown').append($backpackButton);
 
-    //BUTTON for Pokemon (TBC)
-    const $pokemonButton = $('<div>').attr('type', 'submit').text('Pokemon').addClass('pokemon');
-    $('.skillsDropdown').append($pokemonButton);
-
     //BUTTON for Running
-    const $runButton = $('<div>').attr('type', 'submit').text('Run').addClass('run');
+    const $runButton = $('<div>').attr('type', 'submit').text('Run').addClass('run').on('click', () => {
+        alert('Developer forgot to make this function. You cannot run away!')
+    });
+
     $('.skillsDropdown').append($runButton);
 
 }
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -433,23 +431,32 @@ const skillAttack = (event) => {
 
     //Remove button after selecting.
     $('.skillButtons').hide();
+    $('.potionButtons').hide()
 
 
     //Link selected skill to damage 
-    console.log(event.currentTarget.textContent);
-    const $myskillsName = (event.currentTarget.textContent);
-    const $myskillsDamage = ($myMonsters[0].skills[$myskillsName]);
+    const $myskillsName = (event.currentTarget.textContent); //Selected Skill Name 
+    const $myskillsDamage = ($myMonsters[0].skills[$myskillsName]); //Selected SKill Damage
 
 
     //My Monster attack Enemy Monster
     //Check if HP === 0. If true, win. If false, continue.
-    const $enemyremaindinghealth = $enemyMonsters[0].health - $myskillsDamage
+    //!Trying to make the HP Bar reactive
+    const $enemyremaindinghealth = ($enemyMonsters[0].health - $myskillsDamage)
+    const $hpBar = ((100/$enemyMonsters[0].health)*$enemyremaindinghealth)
+    $('#enemyHealthContainer').css('width', [$hpBar]);
+
+
     $enemyMonsters[0].health = $enemyremaindinghealth
+    $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`)
+    alert(`${$myMonsters[0].name} used ${$myskillsName}`)
 
     if ($enemyMonsters[0].health < 1) {
         $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has fainted!`)
         alert('You Won!')
-        $('.skillButtons').hide() //Hiding the list 
+        $('.potionButtons').hide();
+        $('.skillButtons').hide(); //Hiding the list 
+
 
         const $winPopup = $('<div>').attr('type', 'submit').text('You Won!').addClass('winPop').one('click', () => {
             $('body').css('background-color', 'transparent');
@@ -460,25 +467,40 @@ const skillAttack = (event) => {
         })
         $('#battleLayout').append($winPopup);
     }
+
     else {
 
         //Updating the HP when myMonster attacks and alerts
-        $('#enemyMonsterHp').text(`Enemy ${$enemyMonsters[0].name} has ${$enemyMonsters[0].health} HP`)
-        alert(`${$myMonsters[0].name} used ${$myskillsName}`)
+
+
+        // //! TRYING TO CREATE A SLIDE IN BOX
+        // const $popupBox = $('<div>').attr('id', 'popupBox').text(`${$myMonsters[0].name} used ${$myskillsName}`);
+        // $('#battleLayout').append($popupBox)
+        // // const $popupBoxContent = $('<p>').text(`${$myMonsters[0].name} used ${$myskillsName}`)
+        // // $('#popupBox').append($popupBox);
+        // // $('#myMonsterImage').fadeOut(1000);
+  
+
 
         //Getting enemy's skill and damage
         const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills)); //Getting the list of keys of skills in an array 
         const $randomNumber = Math.floor(Math.random() * ($enemyskillsDetails.length)); //Random number to select a random skill 
         const $enemyskillsName = $enemyskillsDetails[$randomNumber]; // Selecting a random skill 
         const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName]; //Getting the skill's damage
+
         const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage //My monster remaining health
         $myMonsters[0].health = $myremaindinghealth
+
+
 
         if ($myMonsters[0].health < 1) {
             alert(`You Lost!`)
             $('#myMonsterHp').text(`My ${$myMonsters[0].name} has fainted!`)
-            $('.skillButtons').hide()
 
+            $('.skillButtons').hide();
+            $('.potionButtons').hide();
+
+            //Button that pops up when your monster hp reaches 0
             const $winPopup = $('<div>').attr('type', 'submit').text('You Lost!').addClass('winPop').one('click', () => {
                 $('body').css('background-color', 'transparent');
                 $myMonsters = [];
@@ -489,6 +511,7 @@ const skillAttack = (event) => {
                 console.log($enemyMonsters);
                 console.log(allMonsters) //Removing elemenets before looping back 
             })
+
             $('#battleLayout').append($winPopup);
 
 
@@ -497,10 +520,13 @@ const skillAttack = (event) => {
         }
         else {
 
+            //Making it slower for computer attack to feel like a turn based thing for user
             setTimeout(function () {
                 $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
                 alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
                 $('.skillButtons').show();
+                $('.potionButtons').show();
+
             }, 1500)
 
 
@@ -510,14 +536,71 @@ const skillAttack = (event) => {
 
 }
 
-// const takingPotion = () => {
-//     //On click, take value from potion array 
+//! Should I try to make this into smaller functions so that I wont have to repeat the code? 
+const takingPotion = (event) => {
+    console.log('Using POTION')
+    $('.potionButtons').hide();
+    $('.skillButtons').hide();
+
+    const $myPotionsName = (event.currentTarget.textContent); //Selected Potion Name 
+    const $myPotionsHeal = (myPotions[0].type[$myPotionsName]); //Selected Potion Heal
+    console.log($myPotionsHeal);
+
+    const $myHealedhealth = $myMonsters[0].health + $myPotionsHeal;
+    $myMonsters[0].health = $myHealedhealth
+
+    $('#myMonsterHp').text(`MY ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`) //My Monster remaining health
+    alert(`Trainer used ${$myPotionsName}`)
+
+    //Getting enemy's skill and damage and getting attacked by the enemy
+    const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills)); //Getting the list of keys of skills in an array 
+    const $randomNumber = Math.floor(Math.random() * ($enemyskillsDetails.length)); //Random number to select a random skills 
+    const $enemyskillsName = $enemyskillsDetails[$randomNumber]; // Selecting a random skills 
+    const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName]; //Getting the skills's damage
+
+    const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage //My monster remaining health
+    $myMonsters[0].health = $myremaindinghealth
+
+    if ($myMonsters[0].health < 1) {
+        alert(`You Lost!`)
+        $('#myMonsterHp').text(`My ${$myMonsters[0].name} has fainted!`)
+        $('.potionButtons').hide();
+        $('.skillButtons').hide();
+
+        //Button that pops up when your monster hp reaches 0
+        const $winPopup = $('<div>').attr('type', 'submit').text('You Lost!').addClass('winPop').one('click', () => {
+            $('body').css('background-color', 'transparent');
+            $myMonsters = [];
+            $enemyMonsters = [];
+            $('#battleLayout').remove();
+            thirdSceneFunc();
+            console.log($myMonsters)
+            console.log($enemyMonsters);
+            console.log(allMonsters) //Removing elemenets before looping back 
+        })
+
+        $('#battleLayout').append($winPopup);
 
 
+        //Link to next function-> Slide in pop up 
+
+    }
+    else {
+
+        //Making it slower for computer attack to feel like a turn based thing for user
+        setTimeout(function () {
+            $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
+            alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
+            $('.potionButtons').show();
+            $('.skillButtons').show()
+        }, 1500)
 
 
+    }
 
-// }
+}
+
+
 
 
 
@@ -528,6 +611,7 @@ const skillAttack = (event) => {
 const main = () => {
 
     $('.startButton').on('click', secondSceneFunc)
+    console.log("At the end.....")
 
 }
 
