@@ -290,7 +290,7 @@
 
     #battleLayout {
       background-color: #CCD0D5;
-      height: 700px;
+      height: 800px;
       border-radius: 10%;
     }
 
@@ -397,39 +397,57 @@
         transform: scale(1, 1);
       }
     }
-/* 
+
     .backgroundMusic {
+      display: none;
       width: 85px;
       height: 80px;
-    } */
+    }
 
     #myMonsterImage {
       transform: scaleX(-1);
       border-radius: 10%;
+   
+    }
+
+    .animate {
+      position: relative;
+      animation-name: example;
+      animation-duration: 0.7s;
+    }
+
+    @keyframes example {
+      0%   {background-color:red; left:0px; top:0px;}
+      50%  {background-color:blue; left:350px; top:-200px;}
+      100% {background-color:red; left:0px; top:0px;}
     }
 
     #enemyMonsterImage {
       border-radius: 10%;
     }
 
+    .animate2 {
+      position: relative;
+      animation-name: example2;
+      animation-duration: 0.7s;
+    }
+    
+    @keyframes example2 {
+      0%   {background-color:red; left:0px; top:0px;}
+      50%  {background-color:blue; left:-350px; top:200px;}
+      100% {background-color:red; left:0px; top:0px;}
+    }
+
+
+
+
     #popupBox {
-    position: absolute;
-    z-index: 1; /* Sit on top */
-    left: 2000px;
-    top: 360px;
     width: 310px;
     height: 100px; 
     border-radius: 5%;
-    animation-name: test;
-    animation-duration: 2s;
+      background-color: lightpink;
     }
 
-
-    @keyframes test {
-      0%   {background-color:lightpink; left:hidden; top:360px;}
-      50%  {background-color:lightpink; left:690px; top:360px;}
-      100%  {background-color:lightpink; left:690px; top:360px;}
-    }
 
     #popupBoxContent {
 
@@ -438,14 +456,20 @@
     }
 
     #enemyHealthContainer {
-      background-color: red;
-      width: 100px;
+      background-color: green;
+      width: 250px;
       height: 20px;
       z-index: 1;
       left: 200px;
     }
 
-
+    #myHealthContain {
+      background-color: green;
+      width: 250px;
+      height: 20px;
+      z-index: 1;
+      left: 200px;
+    }
 
 
 
