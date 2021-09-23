@@ -469,6 +469,7 @@ const skillAttack = (event) => {
     
     const $enemyHpBar = ((250/$enemyGlobalHp)*$enemyremaindinghealth)
     $('#enemyHealthContainer').css('width', [$enemyHpBar]);
+    const $finalButton = $('<div>').attr('id','finalButton');
 
 
     $enemyMonsters[0].health = $enemyremaindinghealth
@@ -495,7 +496,9 @@ const skillAttack = (event) => {
             $('#battleLayout').remove(); //Removing layout 
             thirdSceneFunc(); //Executing thirdSceneFunc to select monsters again 
         })
-        $('#battleLayout').append($winPopup);
+
+            $('#battleLayout').append($finalButton);
+            $('#finalButton').append($winPopup);
     }
 
     else {
@@ -522,7 +525,7 @@ const skillAttack = (event) => {
             $('.potionButtons').hide();
 
             //Button that pops up when your monster hp reaches 0
-            const $winPopup = $('<div>').attr('type', 'submit').text('You Lost!').addClass('winPop').one('click', () => {
+            const $losePopup = $('<div>').attr('type', 'submit').text('You Lost! Try Again!').addClass('losePop').one('click', () => {
                 $('body').css('background-color', 'transparent');
                 $myMonsters = [];
                 $enemyMonsters = [];
@@ -532,8 +535,10 @@ const skillAttack = (event) => {
                 console.log($enemyMonsters);
                 console.log(allMonsters) //Removing elemenets before looping back 
             })
+            
 
-            $('#battleLayout').append($winPopup);
+            $('#battleLayout').append($finalButton);
+            $('#finalButton').append($losePopup);
 
 
             //Link to next function-> Slide in pop up 
@@ -567,6 +572,10 @@ const skillAttack = (event) => {
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//! Function to Heal+Fight
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const takingPotion = (event) => {
     console.log('Using POTION')
     $('.potionButtons').hide();
@@ -584,6 +593,7 @@ const takingPotion = (event) => {
     console.log('newhealth',$myMonsters[0].health)
     console.log($myHpBar2)
     $('#myHealthContain').css('width', [$myHpBar2]);
+    const $finalButton = $('<div>').attr('id','finalButton');
 
 
     $('#myMonsterHp').text(`MY ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`) //My Monster remaining health
@@ -606,7 +616,7 @@ const takingPotion = (event) => {
         $('.skillButtons').hide();
 
         //Button that pops up when your monster hp reaches 0
-        const $winPopup = $('<div>').attr('type', 'submit').text('You Lost!').addClass('winPop').one('click', () => {
+        const $losePopup = $('<div>').attr('type', 'submit').text('You Lost! Try Again!').addClass('losePop').one('click', () => {
             $('body').css('background-color', 'transparent');
             $myMonsters = [];
             $enemyMonsters = [];
@@ -617,7 +627,8 @@ const takingPotion = (event) => {
             console.log(allMonsters) //Removing elemenets before looping back 
         })
 
-        $('#battleLayout').append($winPopup);
+        $('#battleLayout').append($finalButton);
+        $('#finalButton').append($losePopup);
 
 
         //Link to next function-> Slide in pop up 
