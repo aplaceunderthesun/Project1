@@ -185,7 +185,7 @@ const allMonsters = [
 
 
 const myPotions = [
-    { type: { "Potion 1": 10, "Potion 2": 15, "Potion 3": 20, "Potion 4": 25, } }
+    { type: { "Potion 1": 10, "Potion 2": 15, "Potion 3": 20, "Potion 4": 100, } }
 ]
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -436,9 +436,10 @@ const battleSceneFunc = () => {
     $('.skillsDropdown').append($runButton);
 
     //BattleMusic
+    $('#iframeAudio').remove();
     const $mySound = $('<div>').attr('id','mySound');
     $('#battleLayout').append($mySound);
-    const $battleMusic = $('<iframe>').attr('src', 'https://www.mboxdrive.com/pokemon-battle.mp3').attr('allow', 'autoplay').addClass('backgroundMusic');
+    const $battleMusic = $('<iframe>').attr('src', 'TrainerBattle.mp3').attr('allow', 'autoplay').addClass('backgroundMusic');
     $('#mySound').append($battleMusic);
 
 
@@ -466,14 +467,6 @@ const skillAttack = (event) => {
     //!Trying to make the HP Bar reactive
     const $enemyremaindinghealth = ($enemyMonsters[0].health - $myskillsDamage)
     
-    if (($enemyGlobalHp*0.75) > $enemyremaindinghealth && ($enemyGlobalHp*0.25) < $enemyremaindinghealth) {
-        $('#enemyHealthContainer').css('background-color', 'orange');
-    }
-
-    else if (($enemyGlobalHp*0.25) > $enemyremaindinghealth)  {
-        $('#enemyHealthContainer').css('background-color', 'red');
-    }
-
     const $enemyHpBar = ((250/$enemyGlobalHp)*$enemyremaindinghealth)
     $('#enemyHealthContainer').css('width', [$enemyHpBar]);
 
@@ -517,30 +510,9 @@ const skillAttack = (event) => {
         const $enemyskillsName = $enemyskillsDetails[$randomNumber]; // Selecting a random skill 
         const $enemyskillsDamage = $enemyMonsters[0].skills[$enemyskillsName]; //Getting the skill's damage
 
-        console.log('skd',$enemyskillsDamage);
-        console.log('h',$myMonsters[0].health);
-
         const $myremaindinghealth = $myMonsters[0].health - $enemyskillsDamage //My monster remaining health
 
-        console.log('global2', $myGlobalHp)
-        if (($myGlobalHp*0.75) < $myremaindinghealth) {
-            $('#myHealthContain').css('background-color', 'green');
-        }
-
-        else if ((($myGlobalHp*0.75) > $myremaindinghealth) && (($myGlobalHp*0.25) < $myremaindinghealth)) {
-            $('#myHealthContain').css('background-color', 'orange');
-        }
-    
-        else if (($myGlobalHp*0.25) > $myremaindinghealth)  {
-            $('#myHealthContain').css('background-color', 'red');
-        }
-
-        console.log('mrh',$myremaindinghealth);
-        console.log((250/$myMonsters[0].health)*$myremaindinghealth)
-
         $myMonsters[0].health = $myremaindinghealth
-        console.log($myMonsters[0].health);
-
 
         if ($myMonsters[0].health < 1) {
             alert(`You Lost!`)
@@ -595,7 +567,6 @@ const skillAttack = (event) => {
 
 }
 
-//! Should I try to make this into smaller functions so that I wont have to repeat the code? 
 const takingPotion = (event) => {
     console.log('Using POTION')
     $('.potionButtons').hide();
@@ -606,10 +577,18 @@ const takingPotion = (event) => {
     console.log($myPotionsHeal);
 
     const $myHealedhealth = $myMonsters[0].health + $myPotionsHeal;
+    console.log($myHealedhealth)
+    console.log('oldhealth',$myMonsters[0].health)
     $myMonsters[0].health = $myHealedhealth
+    const $myHpBar2 = ((250/$myGlobalHp)*($myMonsters[0].health))
+    console.log('newhealth',$myMonsters[0].health)
+    console.log($myHpBar2)
+    $('#myHealthContain').css('width', [$myHpBar2]);
+
 
     $('#myMonsterHp').text(`MY ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`) //My Monster remaining health
     alert(`Trainer used ${$myPotionsName}`)
+
 
     //Getting enemy's skill and damage and getting attacked by the enemy
     const $enemyskillsDetails = (Object.keys($enemyMonsters[0].skills)); //Getting the list of keys of skills in an array 
@@ -649,9 +628,19 @@ const takingPotion = (event) => {
         //Making it slower for computer attack to feel like a turn based thing for user
         setTimeout(function () {
             $('#myMonsterHp').text(`My ${$myMonsters[0].name} has ${$myMonsters[0].health} HP`);
-            alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`);
+            const $myHpBar3 = ((250/$myGlobalHp)*($myremaindinghealth));
+            $('#myHealthContain').css('width', [$myHpBar3]);
+            alert(`${$enemyMonsters[0].name} used ${$enemyskillsName}`)
+
+            $('#enemyMonsterImage').addClass('animate2');
+
+            setTimeout(function () {
+                $('#enemyMonsterImage').removeClass('animate2');
+            },1000);
+
+            $('.skillButtons').show();
             $('.potionButtons').show();
-            $('.skillButtons').show()
+
         }, 1500)
 
 
